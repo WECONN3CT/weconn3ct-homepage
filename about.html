@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns | WECONN3CT.App - Softwareentwicklung Bad Honnef</title>
+    <meta name="description" content="WECONN3CT.App: 15 Mitarbeiter, 4 Teams, 12 Projekte. App-, Website- und Software-Entwicklung aus Bad Honnef. KI-gestützt, DSGVO-konform, Made in Germany.">
+    <meta name="keywords" content="Softwareentwicklung Bad Honnef, App Entwicklung Deutschland, WECONN3CT Team, KI Entwicklung, Made in Germany Software">
+    <link rel="canonical" href="https://weconn3ct.app/about">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2E3EE8',
+                            50: '#F0F4FF', 100: '#E8EBFF', 200: '#C7CFFF', 300: '#A6B3FF',
+                            400: '#6A7CFF', 500: '#2E3EE8', 600: '#2835CF', 700: '#1B2470',
+                            800: '#141B54', 900: '#0D1238', 950: '#060918',
+                        },
+                        accent: {
+                            DEFAULT: '#9D4EDD',
+                            50: '#F8F0FF', 100: '#F0E0FF', 200: '#E0C0FF', 300: '#C990FF',
+                            400: '#B060FF', 500: '#9D4EDD', 600: '#7B3DB0', 700: '#5A2D82',
+                            800: '#3A1D55', 900: '#1A0D27',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-gray-900 antialiased selection:bg-primary-500 selection:text-white overflow-x-hidden font-sans">
+
+    <!-- NAVIGATION - WECONN3CT Glass Style -->
+    <div class="navbar-wrapper">
+    <nav id="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo"><img src="../Images/properties/logo.png" alt="WECONN3CT.App" class="navbar-logo-img"></a>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="services.html" class="navbar-link">Services</a></li>
+                <li><a href="success-stories.html" class="navbar-link">Projekte</a></li>
+                <li><a href="about.html" class="navbar-link active">Über uns</a></li>
+                <li><a href="contact.html" class="navbar-link">Kontakt</a></li>
+                <li class="navbar-cta"><a href="contact.html" class="navbar-link">Termin buchen</a></li>
+            </ul>
+
+            <div class="navbar-right">
+                <a href="contact.html" class="navbar-cta-right">Termin buchen</a>
+
+                <!-- Dark Mode Toggle - iPhone Style -->
+                <label class="theme-switch" aria-label="Theme wechseln">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="theme-slider">
+                        <span class="theme-slider-icon theme-slider-icon--sun">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                            </svg>
+                        </span>
+                        <span class="theme-slider-icon theme-slider-icon--moon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </span>
+                    </span>
+                </label>
+            </div>
+
+            <button class="navbar-toggle" id="navbarToggle">
+                <span class="navbar-toggle-icon"></span>
+            </button>
+        </div>
+    </nav>
+    </div>
+
+    <!-- Mobile Menu (Fallback) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200 fixed top-20 left-0 right-0 z-40">
+        <div class="px-4 py-6 space-y-4">
+            <a href="index.html" class="block text-gray-700 hover:text-primary-600 transition-colors font-medium">Home</a>
+            <a href="services.html" class="block text-gray-700 hover:text-primary-600 transition-colors font-medium">Services</a>
+            <a href="success-stories.html" class="block text-gray-700 hover:text-primary-600 transition-colors font-medium">Projekte</a>
+            <a href="about.html" class="block text-gray-700 hover:text-primary-600 transition-colors font-medium">Über uns</a>
+            <a href="contact.html" class="block text-gray-700 hover:text-primary-600 transition-colors font-medium">Kontakt</a>
+            <a href="contact.html" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-lg font-semibold hover:from-primary-600 hover:to-accent-600 transition-all shadow-lg">
+                Termin buchen
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-24 min-h-[50vh]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20 text-center">
+            <div class="animate-on-scroll" data-animation="slide-up">
+                <span class="text-primary-500 font-bold uppercase tracking-widest text-xs mb-3 block">Unsere Story</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                    Digitale Innovation <span class="text-primary-500">für jeden erreichbar</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Team in Bad Honnef, Projekte weltweit. Wir verbinden deutschen Qualitätsanspruch mit modernster KI-Technologie.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section class="bg-gray-50 py-24 mb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="animate-on-scroll" data-animation="slide-up">
+                    <div class="glass-card-animated rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+                             alt="WECONN3CT Team Meeting"
+                             class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500">
+                    </div>
+                </div>
+                <div class="animate-on-scroll" data-animation="slide-up" data-delay="200">
+                    <span class="text-primary-500 font-bold uppercase tracking-widest text-xs mb-3 block">Unternehmen</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Wer wir sind</h2>
+                    <div class="space-y-4 text-gray-700 leading-relaxed text-lg">
+                        <p>
+                            WECONN3CT wurde mit einer einfachen Vision gegründet: Digitale Innovation für jeden erreichbar machen. Wir sahen, dass viele Unternehmen großartige Ideen haben, aber keinen Zugang zu moderner Softwareentwicklung.
+                        </p>
+                        <p>
+                            Wir sind nicht nur Entwickler – wir sind Innovatoren. Unser Engagement ist es, KI in jeden Entwicklungsprozess zu integrieren und sicherzustellen, dass jedes Projekt schnell, effizient und zukunftssicher umgesetzt wird.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center mb-16 animate-on-scroll" data-animation="slide-up">
+            <span class="text-primary-500 font-bold uppercase tracking-widest text-xs mb-3 block">Werte</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Unsere Philosophie</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Philosophy 1 -->
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="100">
+                <div class="glass-card-animated rounded-2xl">
+                    <div class="p-8 h-full text-center bg-white rounded-[15px]">
+                        <svg class="h-10 w-10 text-primary-500 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">KI-First Entwicklung</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Modernste AI-Tools beschleunigen unsere Workflows und garantieren höchste Codequalität.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Philosophy 2 -->
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="200">
+                <div class="glass-card-animated rounded-2xl">
+                    <div class="p-8 h-full text-center bg-white rounded-[15px]">
+                        <svg class="h-10 w-10 text-primary-500 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Made in Germany</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            DSGVO-konform, höchste Sicherheitsstandards und deutsche Qualität in jedem Projekt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Philosophy 3 -->
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="300">
+                <div class="glass-card-animated rounded-2xl">
+                    <div class="p-8 h-full text-center bg-white rounded-[15px]">
+                        <svg class="h-10 w-10 text-primary-500 mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Schneller Launch</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            MVPs in Rekordzeit – automatisierte Pipelines validieren Features in Stunden, nicht Wochen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="bg-gray-50 py-24 mb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll" data-animation="slide-up">
+                <span class="text-primary-500 font-bold uppercase tracking-widest text-xs mb-3 block">Team</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Die Köpfe hinter WECONN3CT</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Team Member 1 -->
+                <div class="animate-on-scroll text-center group" data-animation="slide-up" data-delay="100">
+                    <div class="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-300 group-hover:border-primary-500 transition-colors duration-300">
+                        <div class="w-full h-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center">
+                            <span class="text-white text-4xl font-bold">M</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Mentor Sadiku</h3>
+                    <p class="text-primary-500 text-sm font-medium">Growth & QA Lead</p>
+                    <p class="text-gray-600 text-xs mt-2">KI-gestützte QA für messbare Ergebnisse</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="animate-on-scroll text-center group" data-animation="slide-up" data-delay="200">
+                    <div class="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-300 group-hover:border-primary-500 transition-colors duration-300">
+                        <div class="w-full h-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center">
+                            <span class="text-white text-4xl font-bold">T</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Thinesh Rajabalah</h3>
+                    <p class="text-primary-500 text-sm font-medium">Delivery Lead</p>
+                    <p class="text-gray-600 text-xs mt-2">Wöchentliche Inkremente mit Feature Flags</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="animate-on-scroll text-center group" data-animation="slide-up" data-delay="300">
+                    <div class="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-300 group-hover:border-primary-500 transition-colors duration-300">
+                        <div class="w-full h-full bg-gradient-to-br from-primary-400 to-accent-500 flex items-center justify-center">
+                            <span class="text-white text-4xl font-bold">L</span>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Leonardo Braun</h3>
+                    <p class="text-primary-500 text-sm font-medium">Product & Design Lead</p>
+                    <p class="text-gray-600 text-xs mt-2">Design Sprints mit echten Prototypen in 5 Tagen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="100">
+                <div class="text-4xl font-bold text-primary-500 mb-2">15</div>
+                <div class="text-gray-600 text-sm uppercase tracking-wider">Mitarbeiter</div>
+            </div>
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="200">
+                <div class="text-4xl font-bold text-primary-500 mb-2">4</div>
+                <div class="text-gray-600 text-sm uppercase tracking-wider">Teams</div>
+            </div>
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="300">
+                <div class="text-4xl font-bold text-primary-500 mb-2">8</div>
+                <div class="text-gray-600 text-sm uppercase tracking-wider">Partner</div>
+            </div>
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="400">
+                <div class="text-4xl font-bold text-primary-500 mb-2">12</div>
+                <div class="text-gray-600 text-sm uppercase tracking-wider">Projekte</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="animate-on-scroll" data-animation="slide-up">
+                <span class="text-primary-500 font-bold uppercase tracking-widest text-xs mb-3 block">Vorteile</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Warum WECONN3CT?</h2>
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4 text-gray-700 text-lg">
+                        <div class="mt-1">
+                            <svg class="h-6 w-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span>KI-gestützte Entwicklung für schnellere Ergebnisse</span>
+                    </li>
+                    <li class="flex items-start gap-4 text-gray-700 text-lg">
+                        <div class="mt-1">
+                            <svg class="h-6 w-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span>Team in Bad Honnef – persönlich & erreichbar</span>
+                    </li>
+                    <li class="flex items-start gap-4 text-gray-700 text-lg">
+                        <div class="mt-1">
+                            <svg class="h-6 w-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span>DSGVO-konform & Made in Germany</span>
+                    </li>
+                    <li class="flex items-start gap-4 text-gray-700 text-lg">
+                        <div class="mt-1">
+                            <svg class="h-6 w-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span>Transparente Kommunikation & faire Preise</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="animate-on-scroll" data-animation="slide-up" data-delay="200">
+                <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-10 rounded-3xl border border-gray-200 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 relative z-10">Kostenloses Erstgespräch</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed relative z-10">
+                        Du hast eine Idee? Lass uns gemeinsam herausfinden, wie wir sie umsetzen können – unverbindlich und kostenlos.
+                    </p>
+                    <a href="contact.html" class="w-full block text-center bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-bold py-4 rounded-xl transition shadow-lg">
+                        Jetzt Termin buchen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <a href="index.html" class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">W</span>
+                        </div>
+                        <span class="text-gray-900 font-bold text-xl tracking-tight">WECONN3CT</span>
+                    </a>
+                    <p class="text-gray-600 text-sm leading-relaxed max-w-md mb-6">
+                        WECONN3CT.App entwickelt Apps, Websites und Software – schnell, KI-gestützt und Made in Germany. Team in Bad Honnef.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:text-white hover:bg-primary-500 transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:text-white hover:bg-primary-500 transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-gray-900 font-bold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-gray-600 hover:text-primary-500 transition-colors text-sm">Über uns</a></li>
+                        <li><a href="services.html" class="text-gray-600 hover:text-primary-500 transition-colors text-sm">Services</a></li>
+                        <li><a href="success-stories.html" class="text-gray-600 hover:text-primary-500 transition-colors text-sm">Projekte</a></li>
+                        <li><a href="contact.html" class="text-gray-600 hover:text-primary-500 transition-colors text-sm">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-gray-900 font-bold mb-6 uppercase tracking-wider text-sm">Kontakt</h4>
+                    <ul class="space-y-3">
+                        <li class="text-gray-600 text-sm">Bad Honnef, Deutschland</li>
+                        <li><a href="mailto:info@weconn3ct.app" class="text-gray-600 hover:text-primary-500 transition-colors text-sm">info@weconn3ct.app</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2025 WECONN3CT.App – Software made in Germany
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navbar-glass-effect.js"></script>
+</body>
+</html>
