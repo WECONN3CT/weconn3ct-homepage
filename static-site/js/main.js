@@ -48,8 +48,6 @@
     // DOM Elements
     // ================================
     const navbar = document.getElementById('navbar');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
     const navbarToggle = document.getElementById('navbarToggle');
     const navbarMenu = document.getElementById('navbarMenu');
     // ================================
@@ -86,50 +84,38 @@
     }
 
     // ================================
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle – Fullscreen Overlay
     // ================================
-    function toggleMobileMenu() {
-        if (mobileMenu) {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('open');
-
-            if (mobileMenuBtn) {
-                const icon = mobileMenuBtn.querySelector('svg');
-                if (mobileMenu.classList.contains('open')) {
-                    icon.innerHTML = `
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    `;
-                } else {
-                    icon.innerHTML = `
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    `;
-                }
-            }
-        }
-    }
-
-    // Toggle for new WECONN3CT style navbar
     function toggleNavbarMenu() {
-        if (navbarMenu) {
-            navbarMenu.classList.toggle('active');
+        if (!navbarMenu || !navbarToggle) return;
+
+        const isOpen = navbarMenu.classList.contains('active');
+
+        navbarMenu.classList.toggle('active');
+        navbarToggle.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+
+        // Accessibility
+        navbarToggle.setAttribute('aria-expanded', !isOpen);
+        navbarToggle.setAttribute('aria-label', isOpen ? 'Menü öffnen' : 'Menü schließen');
+    }
+
+    function closeNavbarMenu() {
+        if (navbarMenu && navbarMenu.classList.contains('active')) {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            navbarToggle.setAttribute('aria-expanded', 'false');
+            navbarToggle.setAttribute('aria-label', 'Menü öffnen');
         }
     }
 
-    function closeMobileMenu() {
-        if (mobileMenu) {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('open');
-            if (mobileMenuBtn) {
-                const icon = mobileMenuBtn.querySelector('svg');
-                icon.innerHTML = `
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                `;
-            }
+    // Escape-Key schließt Menü
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navbarMenu && navbarMenu.classList.contains('active')) {
+            toggleNavbarMenu();
         }
-        if (navbarMenu) {
-            navbarMenu.classList.remove('active');
-        }
-    }
+    });
 
     // ================================
     // Scroll Animations (Scroll Animation Style)
@@ -194,7 +180,7 @@
                         });
                     }
 
-                    closeMobileMenu();
+                    closeNavbarMenu();
                 }
             });
         });
@@ -1014,24 +1000,19 @@
         // Event Listeners
         window.addEventListener('scroll', throttle(handleNavbarScroll, 50), { passive: true });
 
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        }
-
-        // New WECONN3CT style navbar toggle
+        // Navbar toggle (hamburger → fullscreen overlay)
         if (navbarToggle) {
             navbarToggle.addEventListener('click', toggleNavbarMenu);
         }
 
-        if (mobileMenu) {
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', closeMobileMenu);
-            });
-        }
-
+        // Menü-Links schließen bei Klick
         if (navbarMenu) {
             navbarMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', closeMobileMenu);
+                link.addEventListener('click', function() {
+                    if (navbarMenu.classList.contains('active')) {
+                        toggleNavbarMenu();
+                    }
+                });
             });
         }
 

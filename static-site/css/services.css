@@ -2004,3 +2004,266 @@
     }
 }
 
+/* ================================================================
+   MOBILE OPTIMIERUNG – Services (max-width: 767px)
+   ================================================================ */
+@media (max-width: 767px) {
+
+    /* --- Hero Section -------------------------------------------- */
+    .services-hero {
+        padding-top: 100px;
+        padding-bottom: 80px;
+        min-height: auto;
+        height: auto;
+    }
+
+    .services-hero__orb-1 {
+        width: 350px;
+        height: 350px;
+        top: -60px;
+        right: -80px;
+    }
+
+    .services-hero__orb-2 {
+        width: 300px;
+        height: 300px;
+        bottom: -50px;
+        left: -60px;
+    }
+
+    .services-hero__orb-3 {
+        width: 300px;
+        height: 150px;
+    }
+
+    .services-hero__ctas {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .services-hero__btn-primary,
+    .services-hero__btn-secondary {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+    }
+
+    /* --- Showcase-Glow Container (Kernleistungen) --------------- */
+
+    /* Container: kompakter Glow, weniger Radius */
+    #showcase-glow-container {
+        border-radius: 20px;
+        box-shadow:
+            0 0 30px rgba(139, 92, 246, 0.15),
+            0 0 50px rgba(99, 102, 241, 0.08),
+            0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Inner: minimales Padding, kein Overflow */
+    .showcase-glow-inner {
+        padding: 24px 16px 28px !important;
+        border-radius: 18px;
+        min-height: auto !important;
+        overflow: hidden !important;
+    }
+
+    /* Section Header im Container */
+    .showcase-glow-inner .text-center.mb-8 {
+        margin-bottom: 20px !important;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-sub {
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+
+    /* --- Bento Grid → Single Column ----------------------------- */
+
+    /* KRITISCH: Die 4-Spalten auf 1 Spalte umstellen */
+    .showcase-glow-inner .services-bento-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto !important;
+        gap: 12px !important;
+    }
+
+    /* Alle grid-column/row Zuweisungen zurücksetzen */
+    .showcase-glow-inner .service-card:nth-child(1),
+    .showcase-glow-inner .service-card:nth-child(2),
+    .showcase-glow-inner .service-card:nth-child(3),
+    .showcase-glow-inner .service-card:nth-child(4),
+    .showcase-glow-inner .service-card:nth-child(5),
+    .showcase-glow-inner .service-card:nth-child(6) {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    /* --- Service Cards: Mobile-optimiertes Layout ---------------- */
+
+    .showcase-glow-inner .service-card {
+        padding: 20px !important;
+        border-radius: 16px;
+        min-height: auto;
+    }
+
+    /* Icon + Titel horizontal nebeneinander (spart vertikalen Platz) */
+    .showcase-glow-inner .service-card__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Icon-Titel-Zeile: Icon links, Titel rechts daneben */
+    .showcase-glow-inner .service-card__icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+
+    .showcase-glow-inner .service-card__icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .showcase-glow-inner .service-card__title {
+        font-size: 1.05rem;
+        margin-bottom: 2px;
+    }
+
+    .showcase-glow-inner .service-card__tagline {
+        font-size: 0.82rem;
+        margin-bottom: 10px;
+        color: #64748b;
+    }
+
+    /* Feature-Pills: kompakter */
+    .showcase-glow-inner .service-card__features {
+        gap: 5px;
+        margin-bottom: 12px;
+    }
+
+    .showcase-glow-inner .service-card__feature-pill {
+        font-size: 0.68rem;
+        padding: 3px 10px;
+    }
+
+    /* Footer: Tech-Badges + CTA */
+    .showcase-glow-inner .service-card__footer {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .showcase-glow-inner .service-card__tech {
+        gap: 4px;
+    }
+
+    .showcase-glow-inner .service-card__tech-badge {
+        font-size: 0.6rem;
+        padding: 2px 7px;
+    }
+
+    /* CTA: Mindest-Tap-Target */
+    .showcase-glow-inner .service-card__cta {
+        font-size: 0.82rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Spotlight-Effekt und Corner-Glow auf mobile deaktivieren (Performance) */
+    .service-card::before,
+    .service-card::after {
+        display: none;
+    }
+
+    /* Puzzle clip-path auf mobile deaktivieren (Performance + Overflow) */
+    .service-card.puzzle-active {
+        clip-path: none !important;
+    }
+
+    /* Hover-Effekt auf mobile subtiler */
+    .service-card:hover {
+        transform: none;
+    }
+
+    /* --- Stats-Bar ------------------------------------------------ */
+    .stats-bar__number {
+        font-size: 1.8rem;
+    }
+
+    .stats-bar__label {
+        font-size: 0.7rem;
+    }
+
+    /* --- Hero-Scroll-Wrapper auf Services-Seite ------------------- */
+    .hero-scroll-wrapper {
+        min-height: 150vh;
+    }
+}
+
+/* ================================================================
+   MOBILE OPTIMIERUNG – Services (max-width: 480px)
+   ================================================================ */
+@media (max-width: 480px) {
+
+    /* Container noch kompakter */
+    .showcase-glow-inner {
+        padding: 16px 12px 20px !important;
+    }
+
+    #showcase-glow-container {
+        border-radius: 14px;
+    }
+
+    .showcase-glow-inner {
+        border-radius: 12px;
+    }
+
+    /* Cards: noch weniger Padding */
+    .showcase-glow-inner .service-card {
+        padding: 16px !important;
+        border-radius: 14px;
+    }
+
+    .showcase-glow-inner .services-bento-grid {
+        gap: 10px !important;
+    }
+
+    /* Icon etwas kleiner */
+    .showcase-glow-inner .service-card__icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+    }
+
+    .showcase-glow-inner .service-card__icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .showcase-glow-inner .service-card__title {
+        font-size: 0.95rem;
+    }
+
+    .showcase-glow-inner .service-card__tagline {
+        font-size: 0.78rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .section-sub {
+        font-size: 0.82rem;
+    }
+
+    .section-badge {
+        font-size: 0.65rem;
+    }
+}
+

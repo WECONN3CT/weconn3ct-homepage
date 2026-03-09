@@ -52,15 +52,18 @@
             return particles;
         }
         
+        // Mobile: Keine Partikel-Animation, statisches Logo wird per HTML angezeigt
+        if (window.innerWidth < 768) return;
+
         var img = new Image();
         img.onload = function() {
             var loadingEl = document.getElementById('loading'); if (loadingEl) loadingEl.style.display = 'none';
             var particleData = extractParticles(img, 1000, 0.06);
-            initScene(particleData);
+            initScene(particleData, false);
         };
         img.src = logoSrc;
 
-        function initScene(particleData) {
+        function initScene(particleData, isMobile) {
             var container = document.getElementById('canvas-container');
             var scene = new THREE.Scene();
             var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -72,7 +75,26 @@
             container.appendChild(renderer.domElement);
 
             camera.position.z = 100;
-            
+
+            // Mobile: Logo statisch rechts neben "Wir sind" positionieren
+            var logoScale, logoOffsetX, logoOffsetY;
+            if (isMobile) {
+                var vFov = 75 * Math.PI / 180;
+                var visibleH = 2 * Math.tan(vFov / 2) * 100;
+                var visibleW = visibleH * (window.innerWidth / window.innerHeight);
+                logoScale = 0.65;
+                // "Wir sind" endet ca. bei 120px von links, ~230px von oben (weiter runter)
+                var startX = -visibleW / 2 + (120 / window.innerWidth) * visibleW;
+                var centerY = visibleH / 2 - (205 / window.innerHeight) * visibleH;
+                // data.x min ist -18, Logo-Linkkante soll bei startX + kleiner Abstand starten
+                logoOffsetX = startX + 18 * logoScale + 2;
+                logoOffsetY = centerY;
+            } else {
+                logoScale = 1;
+                logoOffsetX = -64;
+                logoOffsetY = 33;
+            }
+
             var totalParticles = particleData.length;
             var particleGeometry = new THREE.BufferGeometry();
             
@@ -90,15 +112,15 @@
             for (var i = 0; i < totalParticles; i++) {
                 var data = particleData[i];
                 
-                targetPositions[i * 3] = data.x - 64;
-                targetPositions[i * 3 + 1] = data.y + 33;
+                targetPositions[i * 3] = data.x * logoScale + logoOffsetX;
+                targetPositions[i * 3 + 1] = data.y * logoScale + logoOffsetY;
                 targetPositions[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
                 targetColors[i * 3] = data.r;
                 targetColors[i * 3 + 1] = data.g;
                 targetColors[i * 3 + 2] = data.b;
 
-                startPositions[i * 3] = data.x - 64;
-                startPositions[i * 3 + 1] = data.y + 33;
+                startPositions[i * 3] = data.x * logoScale + logoOffsetX;
+                startPositions[i * 3 + 1] = data.y * logoScale + logoOffsetY;
                 startPositions[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
                 startColors[i * 3] = data.r;
                 startColors[i * 3 + 1] = data.g;
@@ -111,7 +133,9 @@
                 currentColors[i * 3 + 1] = startColors[i * 3 + 1];
                 currentColors[i * 3 + 2] = startColors[i * 3 + 2];
 
-                var baseSize = Math.random() * 0.15 + 0.85;
+                var baseSize = isMobile
+                    ? Math.random() * 0.08 + 0.45   // Mobile: kleinere Partikel für schärferes Logo
+                    : Math.random() * 0.15 + 0.85;  // Desktop: normal
                 sizes[i] = baseSize;
                 startSizes[i] = baseSize;
                 targetSizes[i] = baseSize;
@@ -650,8 +674,8 @@
                     startColors[i * 3 + 1] = currentColors[i * 3 + 1];
                     startColors[i * 3 + 2] = currentColors[i * 3 + 2];
 
-                    targetPositions[i * 3] = data.x - 64;
-                    targetPositions[i * 3 + 1] = data.y + 33;
+                    targetPositions[i * 3] = data.x * logoScale + logoOffsetX;
+                    targetPositions[i * 3 + 1] = data.y * logoScale + logoOffsetY;
                     targetPositions[i * 3 + 2] = (Math.random() - 0.5) * 0.1;
                     targetColors[i * 3] = data.r;
                     targetColors[i * 3 + 1] = data.g;
@@ -669,6 +693,13 @@
             function animate() {
                 particleRafId = requestAnimationFrame(animate);
                 if (document.hidden) return;
+
+                // Mobile: Nur statisches Logo rendern, keine Animation/Morphing
+                if (window.innerWidth < 768) {
+                    renderer.render(scene, camera);
+                    return;
+                }
+
                 var delta = clock.getDelta();
 
                 if (animationPhase === 'toShape') {
